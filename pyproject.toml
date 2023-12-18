@@ -1,0 +1,31 @@
+[project]
+name = "ubiquant"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Michael Kingston", email = "michael.kenneth.kingston@gmail.com"},
+]
+dependencies = [
+    "jupyter",
+    "pandas",
+    "lightgbm",
+    "scipy",
+    "wandb",
+    "tqdm",
+    "scikit-learn",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "tensorflow",
+    "fastai>=2.7.13",
+    "plotly>=5.18.0",
+    "pyarrow>=14.0.1",
+    "seaborn>=0.13.0",
+]
+requires-python = ">=3.11,<3.12"
+readme = "README.md"
+license = {text = "Apache"}
+
+
+[tool.pdm]
+package-type = "application"
