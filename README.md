@@ -7,8 +7,53 @@ PDM new ubiquant_market_prediction
 * 142 of 2,893
 * [leader board](https://www.kaggle.com/competitions/ubiquant-market-prediction/leaderboard)
 
-## Description
+# Notable points in this competition
 
+## 1. Fast data loading
+The competition host has provided a large dataset of >3 million trades 
+across > 300 assets.
+The full dataset is large and loading it from CSV to dataframe is time-consuming.
+
+There are a few ways we can deal with this: 
+- One option would be to substitute pandas for a faster library like POLARS or CuDF
+- another option is to save the dataset to a faster and more memory efficient format.
+
+convert from CSV to Parquet
+
+# 2. EDA
+EDA is always an important first step in any machine learning problem. 
+This is no exception, and the EDA reveals a number of interesting features of the 
+dataset that we need to come to terms with to solve this problem.
+
+# 3. Feature Engineering
+
+# 4. Cross-validation strategy
+cross-validation is an important part of the machine learning process. 
+Cross-validation is a little more challenging in the case of time series due to the temporal element.
+Failure to take this into account inevitably results in overwriting.
+It's even more challenging in this case because as we've seen from the EDA there 
+are some unusual features associated with the time stamps.
+Choosing an appropriate cross-validation strategy not only avoids over-fitting it also gives us a nice performance lift.
+
+# LGBM and optimisation
+Notionally, LGBM or other GBDT algorithm should be sufficient to deliver a winning result. 
+However, observing the approaches of other teams and competitors, it's clear 
+that many have used one or more neural networks ensembled with GBDT based 
+models to deliver a better overall result. 
+This is new and challenging to me. 
+GBDT has been my go-to swiss army knife tool for tabular data in particular time series. 
+Its nice to see that deep approaches are catching up with GBDT in this domain
+
+# DNN and optimisation
+
+# ensemble for the win
+
+
+------------
+
+# Competition Information
+
+## Description
 Regardless of your investment strategy, fluctuations are expected in the 
 financial market. Despite this variance, professional investors try to estimate 
 their overall returns. Risks and returns differ based on investment types and 
@@ -53,7 +98,7 @@ for (test_df, sample_prediction_df) in iter_test:
     env.predict(sample_prediction_df)   # register your predictions
 ```
 
-You will get an error if you submission includes nulls or infinities and 
+You will get an error if your submission includes nulls or infinities and 
 submissions that only include one prediction value will receive a score of -1.
 
 ## Timeline
@@ -118,14 +163,3 @@ For more information, check out the following:
 * [Recruitment email address](recruiter@ubiquant.com)
 
 --------------------------------------------
-
-# EDA
-
-# Fast data loading
-
-# Feature Engineering
-
-# LGBM approach
-
-# DNN approach
-
